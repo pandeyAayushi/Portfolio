@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Purple Whale — Into the Deep</title>
+  <meta name="description" content="A cinematic scroll-driven 3D experience featuring a bioluminescent purple whale journeying through the cosmos." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@200;300;400;600;700;900&family=Space+Grotesk:wght@300;400;500;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- ── LOADER ── -->
+  <div id="loader">
+    <div class="loader-inner">
+      <div class="loader-orb"></div>
+      <div class="loader-text">
+        <span>Loading the Deep</span>
+        <div class="loader-bar-wrap"><div class="loader-bar" id="loaderBar"></div></div>
+        <span class="loader-percent" id="loaderPercent">0%</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── NOISE OVERLAY ── -->
+  <div class="noise-overlay"></div>
+
+  <!-- ── CURSOR ── -->
+  <div class="cursor-glow" id="cursorGlow"></div>
+
+  <!-- ── NAV ── -->
+  <nav id="mainNav">
+    <div class="nav-logo">
+      <div class="logo-dot"></div>
+      <span>PURPLE WHALE</span>
+    </div>
+    <div class="nav-links">
+      <a href="#section-intro">Journey</a>
+      <a href="#section-mid">Depths</a>
+      <a href="#section-end">Emergence</a>
+    </div>
+    <div class="nav-scroll-indicator">
+      <span>SCROLL</span>
+      <div class="scroll-line"></div>
+    </div>
+  </nav>
+
+  <!-- ── HERO / CANVAS SECTION ── -->
+  <div id="sticky-container">
+    <div id="sticky-hero">
+
+      <!-- Canvas for frame animation -->
+      <canvas id="whaleCanvas"></canvas>
+
+      <!-- Vignette overlay -->
+      <div class="vignette"></div>
+
+      <!-- Floating particles -->
+      <div class="particles" id="particleContainer"></div>
+
+      <!-- HUD overlays that change with scroll progress -->
+      <div class="hud-overlay" id="hudOverlay">
+
+        <!-- Intro text (shown at start) -->
+        <div class="hud-section" id="hud-intro">
+          <div class="hud-tag">BIOLUMINESCENT ENTITY</div>
+          <h1 class="hud-title">
+            <span class="word" data-delay="0">INTO</span>
+            <span class="word accent" data-delay="1">THE</span>
+            <span class="word" data-delay="2">DEEP</span>
+          </h1>
+          <p class="hud-sub">A purple whale drifts through the infinite void —<br/>where gravity is a memory.</p>
+          <div class="hud-scroll-hint">
+            <div class="mouse-icon"><div class="mouse-wheel"></div></div>
+            <span>Scroll to begin the journey</span>
+          </div>
+        </div>
+
+        <!-- Mid text -->
+        <div class="hud-section hidden" id="hud-mid">
+          <div class="hud-tag">DEPTH UNKNOWN</div>
+          <h2 class="hud-title-mid">The Void<br/><em>Breathes</em></h2>
+          <p class="hud-sub-mid">Far below the surface of reality,<br/>it glides through starlit currents.</p>
+        </div>
+
+        <!-- End text -->
+        <div class="hud-section hidden" id="hud-end">
+          <div class="hud-tag">EMERGENCE</div>
+          <h2 class="hud-title-end">Breaking<br/>Through</h2>
+          <p class="hud-sub-end">The whale rises. The universe<br/>remembers it was always alive.</p>
+          <div class="hud-cta-row">
+            <button class="btn-cta" id="replayBtn">↺ Replay Journey</button>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Progress bar -->
+      <div class="progress-strip">
+        <div class="progress-fill" id="progressFill"></div>
+      </div>
+
+      <!-- Frame counter -->
+      <div class="frame-counter" id="frameCounter">
+        <span id="currentFrame">001</span>
+        <span class="frame-sep">/</span>
+        <span>192</span>
+      </div>
+
+      <!-- Depth meter -->
+      <div class="depth-meter">
+        <div class="depth-label">DEPTH</div>
+        <div class="depth-value" id="depthValue">0 m</div>
+        <div class="depth-bar-wrap">
+          <div class="depth-bar-fill" id="depthBar"></div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ── SCROLLABLE SPACE (controls animation) ── -->
+  <div id="scroll-space"></div>
+
+  <!-- ── OUTRO SECTION ── -->
+  <section id="outro-section">
+    <div class="outro-glow"></div>
+    <div class="outro-content">
+      <div class="outro-eyebrow">A LIVING LEGEND</div>
+      <h2 class="outro-heading">The whale has<br/><span class="gradient-text">always been here.</span></h2>
+      <p class="outro-body">
+        In the spaces between stars and silence,<br/>
+        the purple whale navigates the unknowable —<br/>
+        ancient, luminous, free.
+      </p>
+      <div class="outro-stats">
+        <div class="stat-item">
+          <div class="stat-number">192</div>
+          <div class="stat-label">Frames captured</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number">∞</div>
+          <div class="stat-label">Depth of the void</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number">1</div>
+          <div class="stat-label">Luminous entity</div>
+        </div>
+      </div>
+      <button class="btn-outro" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">↑ Back to Surface</button>
+    </div>
+  </section>
+
+  <script src="script.js"></script>
+</body>
+</html>
